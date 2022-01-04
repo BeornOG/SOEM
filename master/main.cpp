@@ -1,4 +1,4 @@
-#include "master.h" // include the EtherCat Master library
+#include "EthCat.h" // include the EtherCat EthCat library
 #include <ctime> 
 #include <cerrno>
 #include <chrono>
@@ -15,7 +15,7 @@ void delay(unsigned msec) {
 	//STEP7: create sleep msec timer 
 	std::this_thread::sleep_for(std::chrono::milliseconds(msec)); //lang leve stackoverflow antwoorden
 }
-vector openmotionprofile() {
+vector<int> openmotionprofile() {
 	string fname;
 	cout << "Enter the motion profile file name: ";
 	cin >> fname;
@@ -33,11 +33,11 @@ vector openmotionprofile() {
 
 int executemotionprofile(vector<int> MotionData) {
 	int i = 0;
-	while(i < MotionData.size-1) {
-		Master.movePosition(1, MotionData(i), false);
+	while(i < MotionData.size()-1) {
+		EthCat.movePosition(1, MotionData(i), false);
 		cout << "moving to: " << MotionData(i) << "\n";
 		delay(5000);
-		int ErrorCode master.getError
+		int ErrorCode EthCat.getError
 		if (ErrorCode =! 0) {
 			return ErrorCode;
 		}
@@ -50,18 +50,18 @@ int main(int argc, char* argv[])
     
 	//STEP1: select the proper EtherCAT network interface 
 	
-   	//STEP2: instantiate the EtherCAT master object (with proper network interface & cycle time)
-	Master.Master();
+   	//STEP2: instantiate the EtherCAT EthCat object (with proper network interface & cycle time)
+	Master.Master() EthCat;
 	//STEP3: check EtherCAT connection to EtherCAT slaves (and check OPERATIONAL state)
-   	if (Master.connected) { 
+   	if (EthCat.connected) { 
 		   for (int i = 0; i < 65535; ++i){
 			   //STEP4: detect & determine the amount of connected slaves and RESET all drives
-			   Master.reset(i);
+			   EthCat.reset(i);
 		   }
-		//STEP5: enable the first slave (0 = EtherCAT master) && power the drive (OPERATIONAL state && powerstage enable)
-		Master.enable(1);
+		//STEP5: enable the first slave (0 = EtherCAT EthCat) && power the drive (OPERATIONAL state && powerstage enable)
+		EthCat.enable(1);
 		//STEP6: perform homing
-		Master.home(1, false);
+		EthCat.home(1, false);
 		//STEP7: assignment MOTION PROFILE
 
 		/*
@@ -74,10 +74,10 @@ int main(int argc, char* argv[])
 
 		int MovementReturnCode = executemotionprofile(MotionProfileData);
 		
-		//STEP8: disable the first slave (0 = EtherCAT master) && power down the drive (powerstage disable)
+		//STEP8: disable the first slave (0 = EtherCAT EthCat) && power down the drive (powerstage disable)
 
-		Master.disable(1);
-		
+		EthCat.disable(1);
+
 		if (MovementReturnCode =! 0) {
 			return EXIT_FAILURE;
 		}
