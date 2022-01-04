@@ -1,4 +1,4 @@
-#include "EthCat.h" // include the EtherCat EthCat library
+#include "master.h" // include the EtherCat EthCat library
 #include <ctime> 
 #include <cerrno>
 #include <chrono>
