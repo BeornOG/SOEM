@@ -3,11 +3,46 @@
 #include <cerrno>
 #include <chrono>
 #include <thread>
+#include <iostream>
+#include <fstream>
+#include <vector> 
+#include <string>
+
+using namespace std;
 
 //added Linux sleep function for ICP&B 
 void delay(unsigned msec) {
 	//STEP7: create sleep msec timer 
 	std::this_thread::sleep_for(std::chrono::milliseconds(msec)); //lang leve stackoverflow antwoorden
+}
+vector openmotionprofile() {
+	string fname;
+	cout << "Enter the motion profile file name: ";
+	cin >> fname;
+	ifstream MotionProfileFile(fname);
+	vector<int> FileData;
+	string myText;
+	while (getline (MyReadFile, myText)) {
+  		// Output the text from the file
+  		cout << myText;
+		int myNumber = stoi(myText);
+		FileData.push_back(myNumber);
+	}
+	return FileData;
+}
+
+int executemotionprofile(vector<int> MotionData) {
+	int i = 0;
+	while(i < MotionData.size-1) {
+		Master.movePosition(1, MotionData(i), false);
+		cout << "moving to: " << MotionData(i) << "\n";
+		delay(5000);
+		int ErrorCode master.getError
+		if (ErrorCode =! 0) {
+			return ErrorCode;
+		}
+	}
+	return 0;
 }
 
 int main(int argc, char* argv[])
@@ -26,18 +61,26 @@ int main(int argc, char* argv[])
 		//STEP5: enable the first slave (0 = EtherCAT master) && power the drive (OPERATIONAL state && powerstage enable)
 		Master.enable(1);
 		//STEP6: perform homing
-		Master.home(1, false)
+		Master.home(1, false);
 		//STEP7: assignment MOTION PROFILE
 
-	/*
-	//MOTION PROFILE: assignment
-	//
-	//perform motion profile by using a separate C++ function (use a separate function or C++ class for this!)
-	//NOTE: my_sleep (msec) function needs to be created 
-	*/
+		/*
+		//MOTION PROFILE: assignment
+		//
+		//perform motion profile by using a separate C++ function (use a separate function or C++ class for this!)
+		//NOTE: my_sleep (msec) function needs to be created 
+		*/
+		vector<int> MotionProfileData = openmotionprofile();
 
-	//STEP8: disable the first slave (0 = EtherCAT master) && power down the drive (powerstage disable)
+		int MovementReturnCode = executemotionprofile(MotionProfileData);
+		
+		//STEP8: disable the first slave (0 = EtherCAT master) && power down the drive (powerstage disable)
 
+		Master.disable(1);
+		
+		if (MovementReturnCode =! 0) {
+			return EXIT_FAILURE;
+		}
         return EXIT_SUCCESS; // exit the program
     }
     else
