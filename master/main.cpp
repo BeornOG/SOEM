@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 	//STEP1: select the proper EtherCAT network interface 
 	Master EthCat;
    	//STEP2: instantiate the EtherCAT Master object (with proper network interface & cycle time)
-	EthCat.Master();
+	EthCat.~Master();
 	//STEP3: check EtherCAT connection to EtherCAT slaves (and check OPERATIONAL state)
    	if (EthCat.connected()) { 
 		   for (int i = 0; i < 65535; ++i){
