@@ -8,6 +8,7 @@ rm -rf SOEM
 echo "${YELLOW}removed the old version of SOEM, downloading new version"
 git clone https://github.com/BeornOG/SOEM
 echo "downloaded the repository, using cmake to build included code to make the makefile"
+cp SOEM/install.sh install.sh #update the installer
 mkdir SOEM/build
 cd SOEM/build
 cmake ..
