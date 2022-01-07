@@ -1,7 +1,7 @@
 #!/bin/sh
 RED='\033[0;31m'
 NC='\033[0m' # No Colour
-YELLOW ='\033[1;33m'
+YELLOW='\033[1;33m'
 #make the message into a colour
 echo -e "${RED}removing old SOEM${NC}"
 rm -rf SOEM
