@@ -1,5 +1,5 @@
 #!/bin/sh
-echo"removing old SOEM"
+echo "removing old SOEM"
 rm -rf SOEM
 echo "removed the old version of SOEM, downloading new version"
 git clone https://github.com/BeornOG/SOEM
