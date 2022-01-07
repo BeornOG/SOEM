@@ -22,7 +22,7 @@ vector<int> openmotionprofile() {
 	ifstream MotionProfileFile(fname);
 	vector<int> FileData;
 	string myText;
-	while (getline (MyReadFile, myText)) {
+	while (getline (MotionProfileFile, myText)) {
   		// Output the text from the file
   		cout << myText;
 		int myNumber = stoi(myText);
@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
     
 	//STEP1: select the proper EtherCAT network interface 
 	
-   	//STEP2: instantiate the EtherCAT EthCat object (with proper network interface & cycle time)
+   	//STEP2: instantiate the EtherCAT Master object (with proper network interface & cycle time)
 	Master.Master() EthCat;
 	//STEP3: check EtherCAT connection to EtherCAT slaves (and check OPERATIONAL state)
    	if (EthCat.connected) { 
