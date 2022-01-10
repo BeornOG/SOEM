@@ -21,4 +21,4 @@ cd ..
 cd ..
 cp SOEM/build/master/master ExecuteMotionProfile
 cp SOEM/motionprofile MotionProfileExample
-echo "copied files finishing now"
+echo "copied files, finishing now"
