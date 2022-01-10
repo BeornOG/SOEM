@@ -33,8 +33,8 @@ vector<int> openmotionprofile() {
 	return FileData;
 }
 
-int executemotionprofile(vector<int> MotionData, Master Ethcat) {
-	int i = 0;
+/*int executemotionprofile(vector<int> MotionData, Master Ethcat) {
+		int i = 0;
 	// extern Master EthCat;
 	while(i < MotionData.size()-1) {
 		Ethcat.movePosition(1, MotionData[i], false);
@@ -46,7 +46,7 @@ int executemotionprofile(vector<int> MotionData, Master Ethcat) {
 		}
 	}
 	return 0;
-}
+} */
 
 int main(int argc, char* argv[])
 {    
@@ -76,7 +76,18 @@ int main(int argc, char* argv[])
 		*/
 		vector<int> MotionProfileData = openmotionprofile();
 
-		int MovementReturnCode = executemotionprofile(MotionProfileData, EthCat);
+		// int MovementReturnCode = executemotionprofile(MotionProfileData, EthCat);
+			int i = 0;
+	// extern Master EthCat;
+	while(i < MotionData.size()-1) {
+		Ethcat.movePosition(1, MotionData[i], false);
+		cout << "moving to: " << MotionData[i] << "\n";
+		delay(5000);
+		int ErrorCode = Ethcat.getError(1);
+		if (ErrorCode =! 0) {
+			return ErrorCode;
+		}
+	}
 		
 		//STEP8: disable the first slave (0 = EtherCAT EthCat) && power down the drive (powerstage disable)
 
