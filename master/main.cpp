@@ -57,10 +57,11 @@ int main(int argc, char* argv[])
 	Master EthCat("eth0", 2000, true);
 	
 	//STEP3: check EtherCAT connection to EtherCAT slaves (and check OPERATIONAL state)
-   	if (EthCat.connected()) { 
-		   for (int i = 0; i < 65535; ++i){
+
+   //	if (EthCat.connected()) { 
+		  // for (int i = 0; i < 65535; ++i){
 			   //STEP4: detect & determine the amount of connected slaves and RESET all drives
-			   EthCat.reset(i);
+			   EthCat.reset(1);
 		   }
 		//STEP5: enable the first slave (0 = EtherCAT EthCat) && power the drive (OPERATIONAL state && powerstage enable)
 		EthCat.enable(1);
