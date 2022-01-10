@@ -10,6 +10,8 @@
 
 using namespace std;
 
+Master EthCat("eth0", 2000, true);
+
 //added Linux sleep function for ICP&B 
 void delay(unsigned msec) {
 	//STEP7: create sleep msec timer 
@@ -52,7 +54,7 @@ int main(int argc, char* argv[])
 	
 	
    	//STEP2: instantiate the EtherCAT Master object (with proper network interface & cycle time)
-	Master EthCat("eth0", 2000, true);
+	
 	
 	//STEP3: check EtherCAT connection to EtherCAT slaves (and check OPERATIONAL state)
    	if (EthCat.connected()) { 
