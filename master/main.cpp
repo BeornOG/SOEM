@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
 		//perform motion profile by using a separate C++ function (use a separate function or C++ class for this!)
 		//NOTE: my_sleep (msec) function needs to be created 
 		*/
-		vector<int> MotionProfileData = openmotionprofile();
+		vector<int> MotionData = openmotionprofile();
 
 		// int MovementReturnCode = executemotionprofile(MotionProfileData, EthCat);
 			int i = 0;
