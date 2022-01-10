@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
 		  // for (int i = 0; i < 65535; ++i){
 			   //STEP4: detect & determine the amount of connected slaves and RESET all drives
 			   EthCat.reset(1);
-		   }
+		   // }
 		//STEP5: enable the first slave (0 = EtherCAT EthCat) && power the drive (OPERATIONAL state && powerstage enable)
 		EthCat.enable(1);
 		//STEP6: perform homing
@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
 				delay(5000);
 				ErrorCode = EthCat.getError(1);
 				if (ErrorCode =! 0) { 
-					break;
+					return EXIT_FAILURE;
 				}
 			}
 		
@@ -95,9 +95,7 @@ int main(int argc, char* argv[])
 
 		EthCat.disable(1);
 
-		if (ErrorCode =! 0) {
-			return EXIT_FAILURE;
-		}
+		
         return EXIT_SUCCESS; // exit the program
     }
     else
