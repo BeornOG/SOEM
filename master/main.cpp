@@ -38,7 +38,7 @@ int executemotionprofile(vector<int> MotionData) {
 		EthCat.movePosition(1, MotionData[i], false);
 		cout << "moving to: " << MotionData[i] << "\n";
 		delay(5000);
-		int ErrorCode = EthCat.getError();
+		int ErrorCode = EthCat.getError(1);
 		if (ErrorCode =! 0) {
 			return ErrorCode;
 		}
