@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
 	
 	//STEP3: check EtherCAT connection to EtherCAT slaves (and check OPERATIONAL state)
 
-   //	if (EthCat.connected()) { 
+   	if (EthCat.connected()) { 
 		  // for (int i = 0; i < 65535; ++i){
 			   //STEP4: detect & determine the amount of connected slaves and RESET all drives
 			   EthCat.reset(1);
