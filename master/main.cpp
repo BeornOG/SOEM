@@ -35,10 +35,10 @@ int executemotionprofile(vector<int> MotionData) {
 	int i = 0;
 	extern Master EthCat;
 	while(i < MotionData.size()-1) {
-		Ethcat.movePosition(1, MotionData(i), false);
-		cout << "moving to: " << MotionData(i) << "\n";
+		EthCat.movePosition(1, MotionData[i], false);
+		cout << "moving to: " << MotionData[i] << "\n";
 		delay(5000);
-		int ErrorCode Ethcat.getError
+		int ErrorCode EthCat.getError
 		if (ErrorCode =! 0) {
 			return ErrorCode;
 		}
