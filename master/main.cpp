@@ -31,13 +31,14 @@ vector<int> openmotionprofile() {
 	return FileData;
 }
 
-int executemotionprofile(vector<int> MotionData, Master Ehtecat) {
+int executemotionprofile(vector<int> MotionData) {
 	int i = 0;
+	external EthCat;
 	while(i < MotionData.size()-1) {
-		Ethecat.movePosition(1, MotionData(i), false);
+		Ethcat.movePosition(1, MotionData(i), false);
 		cout << "moving to: " << MotionData(i) << "\n";
 		delay(5000);
-		int ErrorCode Ethecat.getError
+		int ErrorCode Ethcat.getError
 		if (ErrorCode =! 0) {
 			return ErrorCode;
 		}
