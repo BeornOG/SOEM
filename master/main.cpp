@@ -10,7 +10,7 @@
 
 using namespace std;
 
-Master EthCat("eth0", 2000, true);
+
 
 //added Linux sleep function for ICP&B 
 void delay(unsigned msec) {
@@ -33,14 +33,14 @@ vector<int> openmotionprofile() {
 	return FileData;
 }
 
-int executemotionprofile(vector<int> MotionData) {
+int executemotionprofile(vector<int> MotionData, Master Ethcat) {
 	int i = 0;
-	extern Master EthCat;
+	// extern Master EthCat;
 	while(i < MotionData.size()-1) {
-		EthCat.movePosition(1, MotionData[i], false);
+		Ethcat.movePosition(1, MotionData[i], false);
 		cout << "moving to: " << MotionData[i] << "\n";
 		delay(5000);
-		int ErrorCode = EthCat.getError(1);
+		int ErrorCode = Ethcat.getError(1);
 		if (ErrorCode =! 0) {
 			return ErrorCode;
 		}
@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 	
 	
    	//STEP2: instantiate the EtherCAT Master object (with proper network interface & cycle time)
-	
+	Master EthCat("eth0", 2000, true);
 	
 	//STEP3: check EtherCAT connection to EtherCAT slaves (and check OPERATIONAL state)
    	if (EthCat.connected()) { 
@@ -76,7 +76,7 @@ int main(int argc, char* argv[])
 		*/
 		vector<int> MotionProfileData = openmotionprofile();
 
-		int MovementReturnCode = executemotionprofile(MotionProfileData);
+		int MovementReturnCode = executemotionprofile(MotionProfileData, EthCat);
 		
 		//STEP8: disable the first slave (0 = EtherCAT EthCat) && power down the drive (powerstage disable)
 
