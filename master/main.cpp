@@ -33,7 +33,7 @@ vector<int> openmotionprofile() {
 
 int executemotionprofile(vector<int> MotionData) {
 	int i = 0;
-	extern EthCat;
+	extern Master EthCat;
 	while(i < MotionData.size()-1) {
 		Ethcat.movePosition(1, MotionData(i), false);
 		cout << "moving to: " << MotionData(i) << "\n";
