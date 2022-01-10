@@ -49,13 +49,13 @@ int main(int argc, char* argv[])
 {
     
 	//STEP1: select the proper EtherCAT network interface 
-	char ifname[] = "Eth0";
+	
 	
    	//STEP2: instantiate the EtherCAT Master object (with proper network interface & cycle time)
 	Master EthCat;
-	EthCat.Master(ifname[], 2000, true);
+	EthCat.Master(char ifname[] = "eth0", 2000, true);
 	//STEP3: check EtherCAT connection to EtherCAT slaves (and check OPERATIONAL state)
-   	if (EthCat.connected()) { 
+   	if (EthCat.conneted()) { 
 		   for (int i = 0; i < 65535; ++i){
 			   //STEP4: detect & determine the amount of connected slaves and RESET all drives
 			   EthCat.reset(i);
