@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 {
     
 	//STEP1: select the proper EtherCAT network interface 
-	char ifname[] = "eth0";
+	char ifname[] = "Eth0";
 	
    	//STEP2: instantiate the EtherCAT Master object (with proper network interface & cycle time)
 	Master EthCat;
