@@ -79,13 +79,13 @@ int main(int argc, char* argv[])
 		// int MovementReturnCode = executemotionprofile(MotionProfileData, EthCat);
 			int i = 0;
 	// extern Master EthCat;
+	int ErrorCode
 	while(i < MotionData.size()-1) {
 		Ethcat.movePosition(1, MotionData[i], false);
 		cout << "moving to: " << MotionData[i] << "\n";
 		delay(5000);
-		int ErrorCode = Ethcat.getError(1);
-		if (ErrorCode =! 0) {
-			return ErrorCode;
+		ErrorCode = Ethcat.getError(1);
+		if (ErrorCode =! 0) { break;
 		}
 	}
 		
@@ -93,7 +93,7 @@ int main(int argc, char* argv[])
 
 		EthCat.disable(1);
 
-		if (MovementReturnCode =! 0) {
+		if (ErrorCode =! 0) {
 			return EXIT_FAILURE;
 		}
         return EXIT_SUCCESS; // exit the program
