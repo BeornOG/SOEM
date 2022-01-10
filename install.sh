@@ -3,7 +3,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Colour
 YELLOW='\033[1;33m'
 #make the message into a colour
-echo -e "${RED}removing old SOEM${NC}"
+echo -e "${RED}removing old SOEM"
 rm -rf SOEM
 echo "${YELLOW}removed the old version of SOEM, downloading new version"
 git clone https://github.com/BeornOG/SOEM
@@ -15,4 +15,10 @@ cmake ..
 echo "cmake complete, building main.cpp"
 cd master
 make
-echo "make finished"
+echo "make finished, copying compiled code and motionprofile"
+cd ..
+cd ..
+cd ..
+cp SOEM/build/master/master ExecuteMotionProfile
+cp SOEM/motionprofile MotionProfileExample
+echo "copied files finishing now"
