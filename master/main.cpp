@@ -33,7 +33,7 @@ vector<int> openmotionprofile() {
 
 int executemotionprofile(vector<int> MotionData) {
 	int i = 0;
-	external EthCat;
+	extern EthCat;
 	while(i < MotionData.size()-1) {
 		Ethcat.movePosition(1, MotionData(i), false);
 		cout << "moving to: " << MotionData(i) << "\n";
@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
 		*/
 		vector<int> MotionProfileData = openmotionprofile();
 
-		int MovementReturnCode = executemotionprofile(MotionProfileData, EthCat);
+		int MovementReturnCode = executemotionprofile(MotionProfileData);
 		
 		//STEP8: disable the first slave (0 = EtherCAT EthCat) && power down the drive (powerstage disable)
 
