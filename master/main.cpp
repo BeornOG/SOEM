@@ -31,29 +31,16 @@ vector<int> openmotionprofile() {
 	return FileData;
 }
 
-int executemotionprofile(vector<int> MotionData) {
-	int i = 0;
-	while(i < MotionData.size()-1) {
-		EthCat.movePosition(1, MotionData(i), false);
-		cout << "moving to: " << MotionData(i) << "\n";
-		delay(5000);
-		int ErrorCode EthCat.getError
-		if (ErrorCode =! 0) {
-			return ErrorCode;
-		}
-	}
-	return 0;
-}
+
 
 int main(int argc, char* argv[])
-{
-    
+{    
 	//STEP1: select the proper EtherCAT network interface 
 	
 	
    	//STEP2: instantiate the EtherCAT Master object (with proper network interface & cycle time)
-	Master EthCat;
-	EthCat.Master("eth0", 2000, true);
+	Master EthCat("eth0", 2000, true);
+	
 	//STEP3: check EtherCAT connection to EtherCAT slaves (and check OPERATIONAL state)
    	if (EthCat.connected()) { 
 		   for (int i = 0; i < 65535; ++i){
@@ -89,4 +76,18 @@ int main(int argc, char* argv[])
     {
         return EXIT_FAILURE; // exit the program
     }
+}
+
+int executemotionprofile(vector<int> MotionData) {
+	int i = 0;
+	while(i < MotionData.size()-1) {
+		EthCat.movePosition(1, MotionData(i), false);
+		cout << "moving to: " << MotionData(i) << "\n";
+		delay(5000);
+		int ErrorCode EthCat.getError
+		if (ErrorCode =! 0) {
+			return ErrorCode;
+		}
+	}
+	return 0;
 }
