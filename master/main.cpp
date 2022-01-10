@@ -31,13 +31,13 @@ vector<int> openmotionprofile() {
 	return FileData;
 }
 
-int executemotionprofile(vector<int> MotionData) {
+int executemotionprofile(vector<int> MotionData, Master Ehtecat) {
 	int i = 0;
 	while(i < MotionData.size()-1) {
-		EthCat.movePosition(1, MotionData(i), false);
+		Ethecat.movePosition(1, MotionData(i), false);
 		cout << "moving to: " << MotionData(i) << "\n";
 		delay(5000);
-		int ErrorCode EthCat.getError
+		int ErrorCode Ethecat.getError
 		if (ErrorCode =! 0) {
 			return ErrorCode;
 		}
@@ -73,7 +73,7 @@ int main(int argc, char* argv[])
 		*/
 		vector<int> MotionProfileData = openmotionprofile();
 
-		int MovementReturnCode = executemotionprofile(MotionProfileData);
+		int MovementReturnCode = executemotionprofile(MotionProfileData, EthCat);
 		
 		//STEP8: disable the first slave (0 = EtherCAT EthCat) && power down the drive (powerstage disable)
 
