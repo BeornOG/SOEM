@@ -31,7 +31,19 @@ vector<int> openmotionprofile() {
 	return FileData;
 }
 
-
+int executemotionprofile(vector<int> MotionData) {
+	int i = 0;
+	while(i < MotionData.size()-1) {
+		EthCat.movePosition(1, MotionData(i), false);
+		cout << "moving to: " << MotionData(i) << "\n";
+		delay(5000);
+		int ErrorCode EthCat.getError
+		if (ErrorCode =! 0) {
+			return ErrorCode;
+		}
+	}
+	return 0;
+}
 
 int main(int argc, char* argv[])
 {    
@@ -78,16 +90,3 @@ int main(int argc, char* argv[])
     }
 }
 
-int executemotionprofile(vector<int> MotionData) {
-	int i = 0;
-	while(i < MotionData.size()-1) {
-		EthCat.movePosition(1, MotionData(i), false);
-		cout << "moving to: " << MotionData(i) << "\n";
-		delay(5000);
-		int ErrorCode EthCat.getError
-		if (ErrorCode =! 0) {
-			return ErrorCode;
-		}
-	}
-	return 0;
-}
