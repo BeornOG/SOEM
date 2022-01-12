@@ -87,7 +87,8 @@ int main(int argc, char* argv[])
 				EthCat.movePosition(1, MotionData[i]*1000, 8000, false
 				);
 				cout << "moving to: " << MotionData[i] << "\n";
-				delay(5000);
+				// delay(5000);
+				std::this_thread::sleep_for(std::chrono::milliseconds(5000));
 				ErrorCode = EthCat.getError(1);
 				if (ErrorCode =! 0) { 
 					return EXIT_FAILURE;
