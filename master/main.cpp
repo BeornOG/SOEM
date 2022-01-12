@@ -83,7 +83,7 @@ int main(int argc, char* argv[])
 			int i = 0;
 			// extern Master EthCat;
 			int ErrorCode;
-			for(int i = 0; i < MotionData.size-1; i++) {
+			for(int i = 0; i < MotionData.size()-1; i++) {
 				EthCat.movePosition(1, MotionData[i]*1000, 80, false);
 				cout << "moving to: " << MotionData[i] << "\n";
 				// delay(5000);
