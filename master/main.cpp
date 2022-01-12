@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
    	if (EthCat.connected()) { 
 		  // for (int i = 0; i < 65535; ++i){
 			   //STEP4: detect & determine the amount of connected slaves and RESET all drives
-			   EthCat.reset(1);
+			   //  EthCat.reset(1);
 			   cout << "1\n";
 		   // }
 		//STEP5: enable the first slave (0 = EtherCAT EthCat) && power the drive (OPERATIONAL state && powerstage enable)
