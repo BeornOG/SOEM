@@ -84,7 +84,8 @@ int main(int argc, char* argv[])
 			// extern Master EthCat;
 			int ErrorCode;
 			while(i < MotionData.size()-1) {
-				EthCat.movePosition(1, MotionData[i], false);
+				EthCat.movePosition(1, MotionData[i]*1000, false
+				);
 				cout << "moving to: " << MotionData[i] << "\n";
 				delay(5000);
 				ErrorCode = EthCat.getError(1);
