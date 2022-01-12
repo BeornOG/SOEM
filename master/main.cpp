@@ -28,6 +28,7 @@ vector<int> openmotionprofile() {
   		// Output the text from the file
   		cout << myText;
 		int myNumber = stoi(myText);
+		cout << myNumber << "\n";
 		FileData.push_back(myNumber);
 	}
 	return FileData;
