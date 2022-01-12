@@ -81,19 +81,18 @@ int main(int argc, char* argv[])
 		vector<int> MotionData = openmotionprofile();
 
 		// int MovementReturnCode = executemotionprofile(MotionProfileData, EthCat);
-			int i = 0;
 			// extern Master EthCat;
-			int ErrorCode;
-			for(int i = 0; i < MotionData.size()-1; i++) {
+		int ErrorCode;
+		for(int i = 0; i < MotionData.size()-1; i++) {
 				EthCat.movePosition(1, MotionData[i]*1000, 80, false);
 				cout << "moving to: " << MotionData[i] << "\n";
 				// delay(5000);
 				std::this_thread::sleep_for(std::chrono::milliseconds(5000));
 				ErrorCode = EthCat.getError(1);
-				if (ErrorCode =! 0) { 
-					return EXIT_FAILURE;
-				}
-			}
+				//if (ErrorCode =! 0) { 
+				//	return EXIT_FAILURE;
+				//}
+		}
 		
 		//STEP8: disable the first slave (0 = EtherCAT EthCat) && power down the drive (powerstage disable)
 
